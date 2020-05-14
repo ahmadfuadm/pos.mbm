@@ -1,0 +1,16 @@
+
+RewriteOptions inherit
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+php_value max_input_vars 5000
+RewriteCond %{HTTP_HOST} ^pos\.mitrabajamandiri\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.pos\.mitrabajamandiri\.com$
+RewriteRule ^/?$ "http\:\/\/pos\.mitrabajamandiri\.com\/public\/login" [R=301,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
